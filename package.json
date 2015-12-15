@@ -1,0 +1,16 @@
+{
+  "name": "TestWorkForKONTORAproduction_SurikovaAlya",
+  "version": "1.0.0",
+  "description": "test work",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-concat-css": "^2.2.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-sass": "^2.1.1"
+  }
+}

@@ -1,0 +1,336 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+$light-gray: #f1f1f1;
+$dark-gray: #53545e;
+$white: #fff;
+$text: #bfc0c3;
+$border: #eaeaea;
+$paragraph: helveticaneuecyrroman;
+$title: Open Sans;
+$item: MyriadProRegular;
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+@font-face {
+    font-family: 'helveticaneuecyrroman';
+    src: url('fonts/helveticaneuecyr-roman-webfont.eot');
+    src: url('fonts/helveticaneuecyr-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneuecyr-roman-webfont.woff2') format('woff2'),
+         url('fonts/helveticaneuecyr-roman-webfont.woff') format('woff'),
+         url('fonts/helveticaneuecyr-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@media all and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+  	font-family: 'helveticaneuecyrroman';
+  	font-weight: normal;
+    font-style: normal;
+    src: url('fonts/helveticaneuecyr-roman-webfont.svg#helveticaneuecyrroman') format('svg');
+  }
+}
+@font-face {
+    font-family: 'MyriadProRegular';
+    src: url('fonts/MyriadProRegular.eot');
+    src: url('fonts/MyriadProRegular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/MyriadProRegular.woff2') format('woff2'),
+         url('fonts/MyriadProRegular.woff') format('woff'),
+         url('fonts/MyriadProRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+$small: 320px;
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+}
+.wrapper {
+	width: 100%;
+	height: auto;
+	background: $light-gray;
+}
+.header {
+	@extend .wrapper;
+	background: #e1e1e1;
+	&__inner {
+		width: 600px;
+		height: auto;
+		background: $dark-gray;
+		margin: 0 auto;
+		padding: 34px 30px;
+		@include clearfix;
+		@include respond-to(handhelds) { width: 100% ; padding: 20px 30px; }
+	}
+	&__logo {
+		float: left;
+		@include respond-to(handhelds) { float: none; }
+		&-link {
+			display: block;
+			width: 157px;
+			height: 34px;
+			background: url(img/img.png) 0 0 no-repeat;
+			@include respond-to(handhelds) { margin: 0 auto; }
+		}
+	}
+	&__links {
+		float: right;
+		padding: 15px 0 0 0;
+		@include respond-to(handhelds) { float: none; text-align: center; }
+	}
+	&__right {
+		font: 12px $title;
+		color: $light-gray;
+		letter-spacing: -.3px;
+	}
+	&__link {
+		color: #a6a7b0;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+.content {
+	@extend .header__inner;
+	height: auto;
+	background: $white;
+	padding: 30px 30px 0 30px;
+}
+.start {
+	width: 540px;
+	height: 250px;
+	background: url(img/pictures.png) no-repeat;
+	background-size: cover;
+	-webkit-animation: myOpacity 2s;
+    animation: myOpacity 2s;
+    animation-timing-function: ease-in-out;
+	@include respond-to(handhelds) { width: 100% ; height: 122px; }
+}
+@-webkit-keyframes myOpacity {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes myOpacity {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+.item {
+	width: 100%;
+	border-top: 1px solid $border;
+	&__title {
+		font: 18px $title;
+		color: $dark-gray;
+		line-height: 18px;
+		text-align: left;
+		padding: 16px 0;
+		text-transform: uppercase;
+	}
+	&__text{
+		font: 14px $paragraph;
+		color: $text;
+		line-height: 19px;
+	}
+	&__button {
+		display: block;
+		margin: 16px 0;
+		width: 79px;
+		height: 36px;
+		background: $dark-gray;
+		text-transform: uppercase;
+		font: 14px $title;
+		color: $white;
+		text-align: center;
+		line-height: 36px;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+.foritems {
+	@include clearfix;
+	width: 100%;
+	padding: 30px 0 0 0;
+	margin: 30px 0 0 0;
+	border-top: 1px solid $border;
+	&__article {
+		float: left;
+		width: 255px;
+		margin: 0 30px 12px 0;
+		&:last-child{
+			margin:0;
+		}
+		&-picture {
+			width: 255px;
+		}
+	}
+	&__item {
+		border: none;
+	}
+}
+.ad{
+	@extend .foritems;
+	margin: 0;
+	padding: 30px 0;
+	&__item {
+		display: table;
+		float: left;
+		width: 160px;
+		height: 160px;
+		background: #dedede;
+		margin: 0 30px 0 0;
+		@include respond-to(handhelds) { float: none; margin: 10px auto; }
+		&:last-child {
+			margin-right: 0;
+			@include respond-to(handhelds) { margin: 10px auto; }
+		}
+		&-text {
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			font: 18px $title;
+			color: #b4b4b4;
+			text-transform: uppercase;
+		}
+	}
+}
+.item__botom {
+	padding: 8px 0 17px 0;
+}
+.footer {
+	@extend .header;
+	background: #e1e1e1;
+	&__inner {
+		@extend .header__inner;
+		height: auto;
+		background: $dark-gray;
+		padding: 0;
+	}
+	&__social {
+		@include clearfix;
+		width: 100%;
+		padding: 20px 30px;
+		background: $light-gray;
+		&-title {
+			float: left;
+			font: 18px $title;
+			letter-spacing: -.3px;
+			color: $dark-gray;
+			text-transform: uppercase;
+			line-height: 30px;
+			@include respond-to(handhelds) { display: block; float: none; text-align: center; }
+		}
+		&-wrapper {
+			@include respond-to(handhelds){ width: 80px; margin: 0 auto; }
+		}
+		&-link {
+			float: left;
+			width: 34px;
+			height: 34px;
+			&:hover {
+				opacity: .6;
+			}
+		}
+	}
+	&__main {
+		@include clearfix;
+		width: 100%;
+		height: auto;
+		padding: 23px 30px 30px 30px;
+	}
+	&__text {
+		float: left;
+		width: 69%;
+		font: 14px $paragraph;
+		color: $white;
+		line-height: 24px;
+		@include respond-to(handhelds) { float: none; width: 100%; }
+	}
+	&__list {
+		float: right;
+		width: 31%;
+		@include respond-to(handhelds) { float: none; width: 100%; padding: 23px 0 0 0; }
+		&-item {
+			position: relative;
+			padding: 0 0 0 52px;
+			@include respond-to(handhelds) { padding: 0 0 0 10px; }
+			&:before {
+				position: absolute;
+				content: '';
+				width: 7px;
+				height: 10px;
+				top: 6px;
+				left: 34px;
+				background: url(img/img.png) -92px -43px no-repeat;
+				@include respond-to(handhelds) { left: -2px; }
+			}
+		}
+		&-link {
+			font: 14px $paragraph;
+			color: $white;
+			line-height: 24px;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__info {
+		@include clearfix;
+		width: 540px;
+		margin: 0 auto;
+		border-top: 1px solid #a6a7b0;
+		padding: 10px 0;
+		@include respond-to(handhelds) { width: 80% ;}
+		&-copyright {
+			float: left;
+			font: 12px $paragraph;
+			color: #a6a7b0;
+			line-height: 24px;
+			@include respond-to(handhelds) { float: none; width: 100%; }
+			&__link {
+				color: $white;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		&-online {
+			@extend .footer__info-copyright;
+			float: right;
+			@include respond-to(handhelds) { float: none; width: 100%; text-align: center; }
+			&__link {
+				@extend .footer__info-copyright;
+				float: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.tw {
+	background: url(img/img.png) 0 -43px no-repeat;
+	margin-left: 40px;
+	@include respond-to(handhelds) { margin-left: 0; }
+}
+.fb {
+	background: url(img/img.png) -49px -43px no-repeat;
+	margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
